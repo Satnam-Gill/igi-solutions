@@ -16,6 +16,7 @@ export default function ContactPage() {
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,7 +40,7 @@ export default function ContactPage() {
       const data = await response.json();
 
       if (response.ok) {
-        alert("Thank you for contacting us! We will get back to you shortly.");
+        setIsSuccessModalOpen(true);
         setFormData({
             fullName: "",
             company: "",
@@ -129,7 +130,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <h3 className="font-bold text-lg text-secondary-navy">Email Us</h3>
-                            <a href="mailto:info@igifreightsolutions.com" className="text-primary-red hover:underline text-lg">info@igifreightsolutions.com</a>
+                            <a href="mailto:ops@igifreightsolutions.com" className="text-primary-red hover:underline text-lg">ops@igifreightsolutions.com</a>
                             <p className="text-sm text-secondary-slate mt-1">We typically reply within 24 hours.</p>
                         </div>
                     </div>
@@ -142,8 +143,23 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <h3 className="font-bold text-lg text-secondary-navy">Call Us</h3>
-                            <p className="text-secondary-navy text-lg">(555) 123-4567</p>
-                            <p className="text-sm text-secondary-slate mt-1">Mon-Fri from 8am to 6pm EST.</p>
+                            <p className="text-secondary-navy text-lg">+1 (925) 474-4422</p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4">
+                        <div className="w-12 h-12 bg-secondary-light rounded-full flex items-center justify-center shrink-0">
+                            <svg className="w-6 h-6 text-secondary-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-lg text-secondary-navy">Visit Us</h3>
+                            <p className="text-secondary-navy text-lg">
+                                130 FIG TREE LN APT 2B<br />
+                                MARTINEZ, CA 94553
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -295,7 +311,7 @@ export default function ContactPage() {
       {/* 3. Bottom CTA (Optional, keeping for consistency) */}
       <CallToAction />
 
-      {/* 4. Privacy Policy Modal */}
+    {/* 4. Privacy Policy Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
           <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl animate-in fade-in zoom-in duration-200">
@@ -428,6 +444,29 @@ export default function ContactPage() {
                 Close
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* 5. Success Modal Popup */}
+      {isSuccessModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+          <div className="bg-white rounded-2xl w-full max-w-md p-8 flex flex-col items-center text-center shadow-2xl animate-in fade-in zoom-in duration-200">
+             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+             </div>
+             <h3 className="text-2xl font-bold text-secondary-navy mb-3">Message Sent!</h3>
+             <p className="text-secondary-slate mb-8">
+               Thank you for contacting us. We have received your message and will get back to you shortly.
+             </p>
+             <button
+               onClick={() => setIsSuccessModalOpen(false)}
+               className="w-full py-3 bg-gradient-to-r from-primary-red to-primary-orange text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:translate-y-[-1px] transition-all"
+               >
+               Close
+             </button>
           </div>
         </div>
       )}
