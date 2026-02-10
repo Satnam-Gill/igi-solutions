@@ -8,7 +8,7 @@ const Services = () => {
       title: "Drayage Services",
       description: "Efficient port-to-door container transport. We handle the complexities of port logistics so you don't have to.",
       image: "/service-drayage.png",
-      link: "/services/drayage",
+      link: "/drayage",
     },
     {
       title: "Intermodal Transport",

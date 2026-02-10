@@ -6,10 +6,23 @@ import Image from "next/image";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    // Reset services submenu when main menu is toggled
+    if (isOpen) setIsServicesOpen(false); 
   };
+
+  const toggleServices = () => {
+    setIsServicesOpen(!isServicesOpen);
+  };
+
+  const services = [
+    { name: "Drayage", href: "/drayage" },
+    { name: "Intermodal", href: "/intermodal" },
+    { name: "Truckload Brokerage", href: "/brokerage" },
+  ];
 
   return (
     <nav className="bg-secondary-navy shadow-lg fixed w-full z-50 top-0 left-0 border-b border-secondary-slate/20">
@@ -37,15 +50,46 @@ const NavBar = () => {
             <Link href="/about" className="text-secondary-light hover:text-primary-orange transition-colors px-3 py-2 rounded-md text-sm font-medium">
               About
             </Link>
-            <Link href="/services" className="text-secondary-light hover:text-primary-orange transition-colors px-3 py-2 rounded-md text-sm font-medium">
-              Services
-            </Link>
+            
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button 
+                className="flex items-center text-secondary-light hover:text-primary-orange transition-colors px-3 py-2 rounded-md text-sm font-medium focus:outline-none"
+              >
+                Services
+                <svg 
+                  className="ml-1 h-4 w-4 fill-current transition-transform duration-200 group-hover:rotate-180" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </button>
+              
+              {/* Dropdown Content */}
+              <div className="absolute left-0 mt-2 w-56 rounded-xl shadow-xl bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+                 <div className="py-2" role="menu" aria-orientation="vertical">
+                    <div className="absolute -top-2 left-8 w-4 h-4 bg-white transform rotate-45 border-l border-t border-black/5"></div>
+                    {services.map((service) => (
+                      <Link
+                        key={service.name}
+                        href={service.href}
+                        className="block px-6 py-3 text-sm text-secondary-navy hover:bg-gray-50 hover:text-primary-red transition-colors border-b border-gray-100 last:border-0 font-medium"
+                        role="menuitem"
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                 </div>
+              </div>
+            </div>
+
             <Link href="/contact" className="text-secondary-light hover:text-primary-orange transition-colors px-3 py-2 rounded-md text-sm font-medium">
               Contact
             </Link>
             <Link
               href="/get-started"
-              className="ml-4 px-5 py-2.5 rounded-full text-white font-semibold shadow-md transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-primary-red to-primary-orange hover:shadow-lg"
+              className="ml-4 px-5 py-2.5 rounded-full text-white font-semibold shadow-md transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-primary-red to-primary-orange hover:shadow-lg hover:-translate-y-0.5"
             >
               Get Started
             </Link>
@@ -58,7 +102,7 @@ const NavBar = () => {
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-secondary-light hover:text-white hover:bg-secondary-slate focus:outline-none transition-colors"
               aria-controls="mobile-menu"
-              aria-expanded="false"
+              aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
               {!isOpen ? (
@@ -103,7 +147,7 @@ const NavBar = () => {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } md:hidden bg-secondary-navy/95 backdrop-blur-sm border-t border-secondary-slate/20 shadow-xl transition-all duration-300 ease-in-out`}
+        } md:hidden bg-secondary-navy/95 backdrop-blur-md border-t border-secondary-slate/20 shadow-xl transition-all duration-300 ease-in-out`}
         id="mobile-menu"
       >
         <div className="px-4 pt-2 pb-6 space-y-2 sm:px-3">
@@ -121,13 +165,39 @@ const NavBar = () => {
           >
             About
           </Link>
-          <Link
-            href="/services"
-            onClick={() => setIsOpen(false)}
-            className="block px-3 py-2 rounded-md text-base font-medium text-secondary-light hover:bg-secondary-slate/30 hover:text-primary-orange transition-colors"
-          >
-            Services
-          </Link>
+
+          {/* Mobile Services Dropdown */}
+          <div className="space-y-1">
+            <button
+              onClick={toggleServices}
+              className="flex justify-between w-full px-3 py-2 rounded-md text-base font-medium text-secondary-light hover:bg-secondary-slate/30 hover:text-primary-orange transition-colors focus:outline-none"
+            >
+              <span>Services</span>
+              <svg 
+                className={`h-5 w-5 transform transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`} 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 20 20" 
+                fill="currentColor"
+              >
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+            <div 
+               className={`overflow-hidden transition-all duration-300 ease-in-out ${isServicesOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}
+            >
+              {services.map((service) => (
+                <Link
+                  key={service.name}
+                  href={service.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block pl-8 pr-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
@@ -139,7 +209,7 @@ const NavBar = () => {
             <Link
               href="/get-started"
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-5 py-3 rounded-full text-white font-bold bg-gradient-to-r from-primary-red to-primary-orange shadow-md hover:shadow-lg transition-all"
+              className="block w-full text-center px-5 py-3 rounded-full text-white font-bold bg-gradient-to-r from-primary-red to-primary-orange shadow-md hover:shadow-lg transition-all active:scale-95"
             >
               Get Started
             </Link>

@@ -56,7 +56,10 @@ export async function POST(request: Request) {
             );
         }
 
-        await sgMail.send(msg);
+        console.log(`Attempting to send email to ${msg.to} from ${msg.from}`);
+        const response = await sgMail.send(msg);
+        console.log('SendGrid Response Code:', response[0]?.statusCode);
+        console.log('SendGrid Response Headers:', response[0]?.headers);
 
         return NextResponse.json(
             { message: 'Email sent successfully' },
