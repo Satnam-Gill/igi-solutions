@@ -2,21 +2,24 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 const Hero = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.png"
-          alt="Global Logistics Supply Chain"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/hero-bg.png"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/banner-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 bg-secondary-navy/70 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary-navy/90 via-secondary-navy/50 to-transparent" />
       </div>

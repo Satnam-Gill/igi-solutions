@@ -20,8 +20,14 @@ const NavBar = () => {
 
   const services = [
     { name: "Drayage", href: "/drayage" },
+    { name: "Warehousing & Transloading", href: "/warehousing-transloading" },
+    { name: "Air & Expedited", href: "/air-expedited" },
+    { name: "Truckload", href: "/truckload" },
     { name: "Intermodal", href: "/intermodal" },
-    { name: "Truckload Brokerage", href: "/brokerage" },
+    { name: "Flatbed", href: "/flatbed" },
+    { name: "Reefer", href: "/reefer" },
+    { name: "LTL", href: "/ltl" },
+    { name: "Cross Border", href: "/cross-border" },
   ];
 
   return (
@@ -84,14 +90,12 @@ const NavBar = () => {
               </div>
             </div>
 
-            <Link href="/contact" className="text-secondary-light hover:text-primary-orange transition-colors px-3 py-2 rounded-md text-sm font-medium">
-              Contact
-            </Link>
+
             <Link
-              href="/get-started"
-              className="ml-4 px-5 py-2.5 rounded-full text-white font-semibold shadow-md transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-primary-red to-primary-orange hover:shadow-lg hover:-translate-y-0.5"
+              href="/contact"
+              className="ml-4 px-6 py-3 rounded-full text-white font-bold shadow-lg shadow-primary-red/30 transition-all duration-300 transform hover:scale-105 bg-gradient-to-r from-primary-red via-red-600 to-primary-orange hover:shadow-xl hover:-translate-y-1 active:scale-95 uppercase tracking-wide"
             >
-              Get Started
+              Get A Quote
             </Link>
           </div>
 
@@ -198,20 +202,14 @@ const NavBar = () => {
             </div>
           </div>
 
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="block px-3 py-2 rounded-md text-base font-medium text-secondary-light hover:bg-secondary-slate/30 hover:text-primary-orange transition-colors"
-          >
-            Contact
-          </Link>
+
           <div className="pt-4 mt-2 border-t border-secondary-slate/20">
             <Link
-              href="/get-started"
+              href="/contact"
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-5 py-3 rounded-full text-white font-bold bg-gradient-to-r from-primary-red to-primary-orange shadow-md hover:shadow-lg transition-all active:scale-95"
+              className="block w-full text-center px-6 py-4 rounded-full text-white font-extrabold bg-gradient-to-r from-primary-red via-red-600 to-primary-orange shadow-lg hover:shadow-xl transition-all active:scale-95 uppercase tracking-wide"
             >
-              Get Started
+              Get A Quote
             </Link>
           </div>
         </div>

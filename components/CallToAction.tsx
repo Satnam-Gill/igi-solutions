@@ -21,12 +21,6 @@ const CallToAction = () => {
           >
             Start Shipping Now
           </Link>
-          <Link
-            href="/carriers"
-            className="px-10 py-4 bg-secondary-navy text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-secondary-navy/90 transition-all duration-300 transform hover:-translate-y-1"
-          >
-            Join Our Carrier Network
-          </Link>
         </div>
       </div>
     </section>
