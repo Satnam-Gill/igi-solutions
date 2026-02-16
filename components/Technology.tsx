@@ -31,12 +31,6 @@ const Technology = () => {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/technology"
-              className="inline-block px-8 py-3 rounded-md border-2 border-secondary-navy text-secondary-navy font-bold hover:bg-secondary-navy hover:text-white transition-all duration-300"
-            >
-              See Our Tech
-            </Link>
           </div>
           
           <div className="lg:w-1/2 relative">

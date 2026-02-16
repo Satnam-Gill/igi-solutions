@@ -14,13 +14,13 @@ const Services = () => {
       title: "Intermodal Transport",
       description: "Cost-effective long-haul solutions combining rail and truck. seamless transitions for your cargo across the country.",
       image: "/service-intermodal.png",
-      link: "/services/intermodal",
+      link: "/intermodal",
     },
     {
       title: "Freight Brokerage",
       description: "Connecting you with reliable carriers. Our vast network ensures your freight moves fast, at the best rates.",
       image: "/service-brokerage.png",
-      link: "/services/brokerage",
+      link: "/truckload",
     },
   ];
 
