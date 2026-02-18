@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +18,7 @@ export default function ReeferPage() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/service-brokerage.png"
+            src="/reefer_hero.png"
             alt="Refrigerated Truck"
             fill
             className="object-cover"
@@ -77,7 +78,7 @@ export default function ReeferPage() {
           </div>
           <div className="order-1 lg:order-2 relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl group">
              <Image
-              src="/service-drayage.png"
+              src="/reefer_loading.png"
               alt="Cold Chain"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -151,7 +152,7 @@ export default function ReeferPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-1 relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/drayage_hero_new_1.png"
+              src="/service-drayage.png"
               alt="Compliance Standards"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"

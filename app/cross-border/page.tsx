@@ -77,7 +77,7 @@ export default function CrossBorderPage() {
           </div>
           <div className="order-1 lg:order-2 relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl group">
              <Image
-              src="/service-intermodal.png"
+              src="/cross_border_hero.png"
               alt="Border Crossing"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"

@@ -77,7 +77,7 @@ export default function FlatbedPage() {
           </div>
           <div className="order-1 lg:order-2 relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl group">
              <Image
-              src="/service-intermodal.png"
+              src="/flatbed_hero.png"
               alt="Flatbed Logistics"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -151,7 +151,7 @@ export default function FlatbedPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-1 relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/service-brokerage.png"
+              src="/flatbed_operation.png"
               alt="Safety Protocols"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"
