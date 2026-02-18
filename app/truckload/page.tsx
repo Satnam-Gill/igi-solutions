@@ -77,7 +77,7 @@ export default function TruckloadPage() {
           </div>
           <div className="order-1 lg:order-2 relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl group">
              <Image
-              src="/drayage_hero_new_1.png"
+              src="/about_hero_bg_1770633790137.png"
               alt="Truckload Capacity"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -196,7 +196,7 @@ export default function TruckloadPage() {
           </div>
            <div className="order-1 lg:order-2 relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/hero-bg.png"
+              src="/air-expedited-hero.png"
               alt="Truck on Highway"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"

@@ -144,6 +144,7 @@ export default function ContactPage() {
                         <div>
                             <h3 className="font-bold text-lg text-secondary-navy">Call Us</h3>
                             <p className="text-secondary-navy text-lg">+1 (925) 474-4422</p>
+                            <p className="text-secondary-navy text-lg">+1 (510) 878-8774</p>
                         </div>
                     </div>
 
