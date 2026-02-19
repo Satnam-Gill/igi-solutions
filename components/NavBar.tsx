@@ -187,7 +187,7 @@ const NavBar = () => {
               </svg>
             </button>
             <div 
-               className={`overflow-hidden transition-all duration-300 ease-in-out ${isServicesOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}
+               className={`overflow-hidden transition-all duration-300 ease-in-out ${isServicesOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"}`}
             >
               {services.map((service) => (
                 <Link

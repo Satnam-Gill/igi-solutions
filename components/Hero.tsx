@@ -42,13 +42,13 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/get-quote"
+              href="/contact"
               className="px-8 py-4 rounded-full bg-primary-red hover:bg-primary-orange text-white font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center"
             >
               Get a Quote
             </Link>
             <Link
-              href="/services"
+              href="/#services"
               className="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md text-white font-bold text-lg transition-all duration-300 text-center"
             >
               Explore Services
