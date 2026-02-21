@@ -70,7 +70,7 @@ export default function AboutPage() {
             
             <div className="mt-10">
               <Link 
-                href="/services" 
+                href="/#services" 
                 className="inline-flex items-center text-primary-red font-bold text-lg hover:text-primary-orange transition-colors group"
               >
                 Explore Our Services
